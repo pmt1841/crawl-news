@@ -22,7 +22,7 @@ public class News {
                 Matcher matcher = pattern.matcher(line);
 
                 while (matcher.find()) {
-                    String news = matcher.group(1).replaceAll(DOUBLE_QUOTE_ENTITY, DOUBLE_QUOTE);
+                    String news = matcher.group(1).replace(DOUBLE_QUOTE_ENTITY, DOUBLE_QUOTE);
 
                     System.out.println(news);
                 }
