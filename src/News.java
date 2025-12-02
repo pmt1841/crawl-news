@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class News {
     private static final String NEWS_REGEX = "<a class=\"dt-text-black-mine\"[^>]*>(.*?)</a>";
-    private static final String QUOTE_REGEX = "&quot;";
+    private static final String DOUBLE_QUOTE_ENTITY = "&quot;";
     private static final String DOUBLE_QUOTE = "\"";
 
     public static void main(String[] args) {
@@ -23,7 +22,7 @@ public class News {
                 Matcher matcher = pattern.matcher(line);
 
                 while (matcher.find()) {
-                    String news = matcher.group(1).replaceAll(QUOTE_REGEX, DOUBLE_QUOTE);
+                    String news = matcher.group(1).replaceAll(DOUBLE_QUOTE_ENTITY, DOUBLE_QUOTE);
 
                     System.out.println(news);
                 }
